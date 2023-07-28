@@ -28,6 +28,3 @@ api_key = "5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv"
 
 countries_list = get_countries()
 failed_countries_list = make_parallel_requests(url, api_key, countries_list)
-
-print("Países que não retornaram sucesso:")
-print(failed_countries_list)
