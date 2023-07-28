@@ -2,7 +2,7 @@ import unittest
 import airfields
 
 
-class TestGetAirports(unittest.TestCase):
+class TestAirfields(unittest.TestCase):
     def test_get_airports_successful(self):
         api_key = "424f75d08159469ea32820d7436e4684"
         country = "Brazil"
@@ -18,3 +18,7 @@ class TestGetAirports(unittest.TestCase):
 
         with self.assertRaises(Exception):
             airfields.get_airports(api_key, country)
+
+
+if __name__ == "__main__":
+    unittest.main()
