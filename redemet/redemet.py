@@ -119,3 +119,44 @@ class Redemet(object):
             return response.content.decode("utf-8")
         else:
             raise Exception("Error when making a request to the RedeMet products sigwx API.")
+
+    def product_messages_sigmet(self, api_key: str):
+        """
+        @description: Return SIGMET messages from the
+                      countries available in the REDEMET
+                      database.
+        """
+
+        params = {
+            "api_key": api_key,
+        }
+
+        endpoint = config.ENDPOINT
+
+        response = requests.get(f"{endpoint}/mensagens/sigmet", params=params)
+
+        if response.status_code == 200:
+            return response.content.decode("utf-8")
+        else:
+            raise Exception("Error when making a request to the RedeMet mensagens sigmet API.")
+
+    def product_messages_meteograma(self, api_key: str, locality: str):
+        """
+        @description: Return information from METAR, TAF
+                      and Aerodrome Warning messages for
+                      locations available in the REDEMET
+                      database.
+        """
+
+        params = {
+            "api_key": api_key,
+        }
+
+        endpoint = config.ENDPOINT
+
+        response = requests.get(f"{endpoint}/mensagens/meteograma/{locality}", params=params)
+
+        if response.status_code == 200:
+            return response.content.decode("utf-8")
+        else:
+            raise Exception("Error when making a request to the RedeMet mensagens meteograma API.")
