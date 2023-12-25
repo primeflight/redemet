@@ -8,11 +8,12 @@ import helpers.config as config
 class Redemet(object):
     def airports(self, api_key: str, country: str):
         """
-        API intended to return information on Aerodromes
-        from countries available in the REDEMET database.
+        @description: API intended to return information
+                      on Aerodromes from countries available
+                      in the REDEMET database.
 
-        @param api_key
-        @param country
+        @param str api_key
+        @param str country
 
         @return
         """
