@@ -98,7 +98,7 @@ class Redemet(object):
         else:
             raise Exception("Error when making a request to the RedeMet products sigwx API.")
 
-    def product_messages_taf(self, api_key: str, locations):
+    def messages_taf(self, api_key: str, locations):
         """
         @description: Return TAF messages from the
                       locations available in the
@@ -118,9 +118,9 @@ class Redemet(object):
         if response.status_code == 200:
             return response.content.decode("utf-8")
         else:
-            raise Exception("Error when making a request to the RedeMet products sigwx API.")
+            raise Exception("Error when making a request to the RedeMet messages sigwx API.")
 
-    def product_messages_sigmet(self, api_key: str):
+    def messages_sigmet(self, api_key: str):
         """
         @description: Return SIGMET messages from the
                       countries available in the REDEMET
@@ -140,12 +140,16 @@ class Redemet(object):
         else:
             raise Exception("Error when making a request to the RedeMet mensagens sigmet API.")
 
-    def product_messages_meteograma(self, api_key: str, locality: str):
+    def messages_meteograma(self, api_key: str, locality: str):
         """
         @description: Return information from METAR, TAF
                       and Aerodrome Warning messages for
                       locations available in the REDEMET
                       database.
+
+        - https://ajuda.decea.mil.br/base-de-conhecimento/api-redemet-mensagem-meteograma/
+
+        - https://ajuda.decea.mil.br/base-de-conhecimento/como-decodificar-o-metar-e-o-speci/
         """
 
         params = {
@@ -160,3 +164,55 @@ class Redemet(object):
             return response.content.decode("utf-8")
         else:
             raise Exception("Error when making a request to the RedeMet mensagens meteograma API.")
+
+    def messages_metar(self, api_key: str, locations):
+        """
+        @description: Return METAR/SPECI messages from the
+                      locations available in the REDEMET
+                      database.
+
+        @param dict locations - ICAO location code. When you
+                                need to enter more than one
+                                location, simply enter them
+                                separated by a comma without
+                                a gap.
+
+        @url: https://ajuda.decea.mil.br/base-de-conhecimento/api-redemet-mensagem-metar/
+        """
+
+        params = {
+            "api_key": api_key,
+        }
+
+        endpoint = config.ENDPOINT
+
+        locations_str = ",".join(locations)
+
+        response = requests.get(f"{endpoint}/mensagens/metar/{locations_str}", params=params)
+
+        if response.status_code == 200:
+            return response.content.decode("utf-8")
+        else:
+            raise Exception("Error when making a request to the RedeMet messages metar API.")
+
+    def messages_gamet(self, api_key: str):
+        """
+        @description: Return GAMET messages from the
+                      countries available in the REDEMET
+                      database.
+
+        @url: https://ajuda.decea.mil.br/base-de-conhecimento/api-redemet-mensagem-gamet/
+        """
+
+        params = {
+            "api_key": api_key,
+        }
+
+        endpoint = config.ENDPOINT
+
+        response = requests.get(f"{endpoint}/mensagens/gamet", params=params)
+
+        if response.status_code == 200:
+            return response.content.decode("utf-8")
+        else:
+            raise Exception("Error when making a request to the RedeMet messages gamet API.")

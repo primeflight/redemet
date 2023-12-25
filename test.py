@@ -12,13 +12,21 @@ from redemet.redemet import Redemet
 # sigwx = Redemet().product_sigwx("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv")
 # print(sigwx)
 
-# taf = Redemet().product_messages_taf("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", ["SBJU"])
+# taf = Redemet().messages_taf("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", ["SBJU"])
 # print(taf)
 
-# sigmet = Redemet().product_messages_sigmet("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv")
+# sigmet = Redemet().messages_sigmet("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv")
 # print(sigmet)
 
-meteograma = Redemet().product_messages_meteograma(
-    "5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", "SBJU"
-)
-print(meteograma)
+# meteograma = Redemet().product_messages_meteograma(
+#    "5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", "SBJU"
+# )
+# print(meteograma)
+
+# metar = Redemet().product_messages_metar(
+#    "5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", ["SBJU"]
+# )
+# print(metar)
+
+gamet = Redemet().messages_gamet("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv")
+print(gamet)
