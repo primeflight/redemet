@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import requests
-import helpers.config as config
+
+ENDPOINT = "https://api-redemet.decea.mil.br"
 
 
 class Redemet(object):
@@ -18,9 +19,7 @@ class Redemet(object):
             "country": country,
         }
 
-        endpoint = config.ENDPOINT
-
-        response = requests.get(f"{endpoint}/aerodromos/", params=params)
+        response = requests.get(f"{ENDPOINT}/aerodromos/", params=params)
 
         if response.status_code == 200:
             airports = response.json()
@@ -42,9 +41,7 @@ class Redemet(object):
             "country": country,
         }
 
-        endpoint = config.ENDPOINT
-
-        response = requests.get(f"{endpoint}/aerodromos/status/pais/{country}", params=params)
+        response = requests.get(f"{ENDPOINT}/aerodromos/status/pais/{country}", params=params)
 
         if response.status_code == 200:
             airports = response.json()
@@ -66,9 +63,7 @@ class Redemet(object):
             "localidade": location,
         }
 
-        endpoint = config.ENDPOINT
-
-        response = requests.get(f"{endpoint}/aerodromos/info/", params=params)
+        response = requests.get(f"{ENDPOINT}/aerodromos/info/", params=params)
 
         if response.status_code == 200:
             airports = response.json()
@@ -89,9 +84,7 @@ class Redemet(object):
             "api_key": api_key,
         }
 
-        endpoint = config.ENDPOINT
-
-        response = requests.get(f"{endpoint}/produtos/sigwx", params=params)
+        response = requests.get(f"{ENDPOINT}/produtos/sigwx", params=params)
 
         if response.status_code == 200:
             return response.content.decode("utf-8")
@@ -109,11 +102,9 @@ class Redemet(object):
             "api_key": api_key,
         }
 
-        endpoint = config.ENDPOINT
-
         locations_str = ",".join(locations)
 
-        response = requests.get(f"{endpoint}/mensagens/taf/{locations_str}", params=params)
+        response = requests.get(f"{ENDPOINT}/mensagens/taf/{locations_str}", params=params)
 
         if response.status_code == 200:
             return response.content.decode("utf-8")
@@ -131,9 +122,7 @@ class Redemet(object):
             "api_key": api_key,
         }
 
-        endpoint = config.ENDPOINT
-
-        response = requests.get(f"{endpoint}/mensagens/sigmet", params=params)
+        response = requests.get(f"{ENDPOINT}/mensagens/sigmet", params=params)
 
         if response.status_code == 200:
             return response.content.decode("utf-8")
@@ -156,9 +145,7 @@ class Redemet(object):
             "api_key": api_key,
         }
 
-        endpoint = config.ENDPOINT
-
-        response = requests.get(f"{endpoint}/mensagens/meteograma/{locality}", params=params)
+        response = requests.get(f"{ENDPOINT}/mensagens/meteograma/{locality}", params=params)
 
         if response.status_code == 200:
             return response.content.decode("utf-8")
@@ -184,11 +171,9 @@ class Redemet(object):
             "api_key": api_key,
         }
 
-        endpoint = config.ENDPOINT
-
         locations_str = ",".join(locations)
 
-        response = requests.get(f"{endpoint}/mensagens/metar/{locations_str}", params=params)
+        response = requests.get(f"{ENDPOINT}/mensagens/metar/{locations_str}", params=params)
 
         if response.status_code == 200:
             return response.content.decode("utf-8")
@@ -208,9 +193,7 @@ class Redemet(object):
             "api_key": api_key,
         }
 
-        endpoint = config.ENDPOINT
-
-        response = requests.get(f"{endpoint}/mensagens/gamet", params=params)
+        response = requests.get(f"{ENDPOINT}/mensagens/gamet", params=params)
 
         if response.status_code == 200:
             return response.content.decode("utf-8")
