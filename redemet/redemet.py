@@ -11,11 +11,6 @@ class Redemet(object):
         @description: API intended to return information
                       on Aerodromes from countries available
                       in the REDEMET database.
-
-        @param str api_key
-        @param str country
-
-        @return
         """
 
         params = {
