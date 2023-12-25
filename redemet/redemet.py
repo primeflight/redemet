@@ -97,3 +97,25 @@ class Redemet(object):
             return response.content.decode("utf-8")
         else:
             raise Exception("Error when making a request to the RedeMet products sigwx API.")
+
+    def product_messages_taf(self, api_key: str, locations):
+        """
+        @description: Return TAF messages from the
+                      locations available in the
+                      REDEMET database.
+        """
+
+        params = {
+            "api_key": api_key,
+        }
+
+        endpoint = config.ENDPOINT
+
+        locations_str = ",".join(locations)
+
+        response = requests.get(f"{endpoint}/mensagens/taf/{locations_str}", params=params)
+
+        if response.status_code == 200:
+            return response.content.decode("utf-8")
+        else:
+            raise Exception("Error when making a request to the RedeMet products sigwx API.")

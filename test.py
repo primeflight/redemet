@@ -9,5 +9,8 @@ from redemet.redemet import Redemet
 # airport_info = Redemet().airport_info("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", "SBJU")
 # print(airport_info)
 
-product_sigwx = Redemet().product_sigwx("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv")
-print(product_sigwx)
+# sigwx = Redemet().product_sigwx("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv")
+# print(sigwx)
+
+taf = Redemet().product_messages_taf("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", ["SBJU"])
+print(taf)
