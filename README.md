@@ -14,14 +14,7 @@ make test
 make coverage
 ```
 
-## 
-
-
-```bash
-curl -H 'X-Api-Key: your_api_key' 'https://api-redemet.decea.gov.br/{url}'
-
-curl 'https://api-redemet.decea.gov.br?api_key='your_api_key'
-``````
+## Use Guide
 
 ## Credits
 
