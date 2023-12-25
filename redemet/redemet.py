@@ -77,3 +77,23 @@ class Redemet(object):
             raise Exception(
                 "Error when making a request to the RedeMet airports location info API."
             )
+
+    def product_sigwx(self, api_key: str):
+        """
+        @description: API intended to return the url
+                      of the last available low sigwx
+                      chart (SUP/FL250).
+        """
+
+        params = {
+            "api_key": api_key,
+        }
+
+        endpoint = config.ENDPOINT
+
+        response = requests.get(f"{endpoint}/produtos/sigwx", params=params)
+
+        if response.status_code == 200:
+            return response.content.decode("utf-8")
+        else:
+            raise Exception("Error when making a request to the RedeMet products sigwx API.")

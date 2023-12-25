@@ -6,5 +6,8 @@ from redemet.redemet import Redemet
 # airports_status = Redemet().airports_status("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", "BRASIL")
 # print(airports_status)
 
-airport_info = Redemet().airport_info("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", "SBJU")
-print(airport_info)
+# airport_info = Redemet().airport_info("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv", "SBJU")
+# print(airport_info)
+
+product_sigwx = Redemet().product_sigwx("5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv")
+print(product_sigwx)
