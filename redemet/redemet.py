@@ -16,10 +16,9 @@ class Redemet(object):
 
         params = {
             "api_key": api_key,
-            "country": country,
         }
 
-        response = requests.get(f"{ENDPOINT}/aerodromos/", params=params)
+        response = requests.get(f"{ENDPOINT}/aerodromos/pais/{country}", params=params)
 
         if response.status_code == 200:
             airports = response.json()
@@ -38,7 +37,6 @@ class Redemet(object):
 
         params = {
             "api_key": api_key,
-            "country": country,
         }
 
         response = requests.get(f"{ENDPOINT}/aerodromos/status/pais/{country}", params=params)
