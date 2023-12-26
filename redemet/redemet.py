@@ -14,11 +14,9 @@ class Redemet(object):
                       in the REDEMET database.
         """
 
-        params = {
-            "api_key": api_key,
-        }
+        params = {"api_key": api_key, "pais": country}
 
-        response = requests.get(f"{ENDPOINT}/aerodromos/pais/{country}", params=params)
+        response = requests.get(f"{ENDPOINT}/aerodromos/", params=params)
 
         if response.status_code == 200:
             airports = response.json()
@@ -35,11 +33,9 @@ class Redemet(object):
                       and ceiling of the location.
         """
 
-        params = {
-            "api_key": api_key,
-        }
+        params = {"api_key": api_key, "pais": country}
 
-        response = requests.get(f"{ENDPOINT}/aerodromos/status/pais/{country}", params=params)
+        response = requests.get(f"{ENDPOINT}/aerodromos/status/", params=params)
 
         if response.status_code == 200:
             airports = response.json()
