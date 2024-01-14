@@ -24,7 +24,7 @@ def make_parallel_requests(url, api_key, countries):
 
 # URL e chave da API (substitua pela URL real e chave da API, se necessário)
 url = "https://api-redemet.decea.mil.br/aerodromos"
-api_key = "5gmpLVuFBdcHCSf928dhXqdpenJdTZ5jGSNSAugv"
+api_key = ""
 
 countries_list = get_countries()
 failed_countries_list = make_parallel_requests(url, api_key, countries_list)

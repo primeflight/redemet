@@ -45,7 +45,7 @@ class Redemet(object):
                 "Error when making a request to the RedeMet airports country status API."
             )
 
-    def airport_info(self, api_key: str, location: str):
+    def airport_info(self, api_key: str, location: str, metar: str = "sim", taf: str = "nao"):
         """
         @description: Return information on the weather
                       conditions of a location available
@@ -55,6 +55,8 @@ class Redemet(object):
         params = {
             "api_key": api_key,
             "localidade": location,
+            "metar": metar,
+            "taf": taf,
         }
 
         response = requests.get(f"{ENDPOINT}/aerodromos/info/", params=params)

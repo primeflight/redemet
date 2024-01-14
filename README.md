@@ -22,7 +22,7 @@ from redemet.redemet import Redemet
 airports = Redemet().airports("your_api_key", "BRASIL")
 print(airports)
 
-airports_status = Redemet().airports_status("your_api_key", "BRASIL")
+airports_status = Redemet().airport_status("your_api_key", "BRASIL")
 print(airports_status)
 
 airport_info = Redemet().airport_info("your_api_key", "SBJU")
